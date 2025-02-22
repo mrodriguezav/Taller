@@ -1,16 +1,16 @@
 package co.edu.unbosque.model;
 
-public class Comida extends Producto {
+public class Concentrado extends Producto {
 	private String ingredientePrincipal;
 	private boolean esBolsaPlastica;
 	private float cantComida;
 	private boolean esParaCachorro;
 
-	public Comida() {
+	public Concentrado() {
 
 	}
 
-	public Comida(String ingredientePrincipal, boolean esBolsaPlastica, float cantComida, boolean esParaCachorro) {
+	public Concentrado(String ingredientePrincipal, boolean esBolsaPlastica, float cantComida, boolean esParaCachorro) {
 		super();
 		this.ingredientePrincipal = ingredientePrincipal;
 		this.esBolsaPlastica = esBolsaPlastica;
@@ -18,7 +18,7 @@ public class Comida extends Producto {
 		this.esParaCachorro = esParaCachorro;
 	}
 
-	public Comida(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca,
+	public Concentrado(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca,
 			String ingredientePrincipal, boolean esBolsaPlastica, float cantComida, boolean esParaCachorro) {
 		super(precioCompra, precioVenta, cantidad, nombre, tamanio, marca);
 		this.ingredientePrincipal = ingredientePrincipal;
@@ -27,7 +27,7 @@ public class Comida extends Producto {
 		this.esParaCachorro = esParaCachorro;
 	}
 
-	public Comida(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca) {
+	public Concentrado(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca) {
 		super(precioCompra, precioVenta, cantidad, nombre, tamanio, marca);
 		// TODO Auto-generated constructor stub
 	}
