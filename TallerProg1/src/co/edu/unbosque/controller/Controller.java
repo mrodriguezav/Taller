@@ -1,6 +1,5 @@
 package co.edu.unbosque.controller;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -134,40 +133,40 @@ public class Controller implements ActionListener {
 			agregar = true;
 			if (concentrado == true) {
 				vf.getMw().getInputPanel().getTitulo().setText("AGREGANDO CONCENTRADO: ");
-				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto: ");
-				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta: ");
+				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto $: ");
+				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta $: ");
 				vf.getMw().getInputPanel().getCantidadLbl().setText("Cantidad: ");
 				vf.getMw().getInputPanel().getNombreLbl().setText("Nombre: ");
 				vf.getMw().getInputPanel().getTamanioLbl().setText("Tamaño: ");
 				vf.getMw().getInputPanel().getMarcaLbl().setText("Marca: ");
 				vf.getMw().getInputPanel().getPropio1Lbl().setText("Ingrediente principal: ");
-				vf.getMw().getInputPanel().getPropio2Lbl().setText("Es de bolsa plástica?: ");
+				vf.getMw().getInputPanel().getPropio2Lbl().setText("Es de bolsa plástica? (Si/No): ");
 				vf.getMw().getInputPanel().getPropio3Lbl().setText("Cantidad del producto (lb): ");
-				vf.getMw().getInputPanel().getPropio4Lbl().setText("Es para cachorro?: ");
+				vf.getMw().getInputPanel().getPropio4Lbl().setText("Es para cachorro? (Si/No): ");
 			} else if (guacal == true) {
 				vf.getMw().getInputPanel().getTitulo().setText("AGREGANDO GUACAL");
-				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto: ");
-				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta: ");
+				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto $: ");
+				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta $: ");
 				vf.getMw().getInputPanel().getCantidadLbl().setText("Cantidad: ");
 				vf.getMw().getInputPanel().getNombreLbl().setText("Nombre: ");
 				vf.getMw().getInputPanel().getTamanioLbl().setText("Tamaño: ");
 				vf.getMw().getInputPanel().getMarcaLbl().setText("Marca: ");
 				vf.getMw().getInputPanel().getPropio1Lbl().setText("Es grande? (Si/No): ");
 				vf.getMw().getInputPanel().getPropio2Lbl().setText("Material: ");
-				vf.getMw().getInputPanel().getPropio3Lbl().setText("Es para perros?: ");
+				vf.getMw().getInputPanel().getPropio3Lbl().setText("Es para perros? (Si/No): ");
 				vf.getMw().getInputPanel().getPropio4Lbl().setText("Color: ");
 			} else if (correa == true) {
 				vf.getMw().getInputPanel().getTitulo().setText("AGREGANDO CORREA");
-				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto: ");
-				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta: ");
+				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto $: ");
+				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta $: ");
 				vf.getMw().getInputPanel().getCantidadLbl().setText("Cantidad: ");
 				vf.getMw().getInputPanel().getNombreLbl().setText("Nombre: ");
 				vf.getMw().getInputPanel().getTamanioLbl().setText("Tamaño: ");
 				vf.getMw().getInputPanel().getMarcaLbl().setText("Marca: ");
 				vf.getMw().getInputPanel().getPropio1Lbl().setText("Color: ");
-				vf.getMw().getInputPanel().getPropio2Lbl().setText("Longitud: ");
+				vf.getMw().getInputPanel().getPropio2Lbl().setText("Longitud en metros: ");
 				vf.getMw().getInputPanel().getPropio3Lbl().setText("Material: ");
-				vf.getMw().getInputPanel().getPropio4Lbl().setText("Es de ahogo?: ");
+				vf.getMw().getInputPanel().getPropio4Lbl().setText("Es de ahogo? (Si/No): ");
 			}
 
 			vf.getMw().showinputPanel();
@@ -283,10 +282,10 @@ public class Controller implements ActionListener {
 						esParaCachorroO = true;
 					} else {
 						esParaCachorroO = false;
-						mf.getConcentradoDAO().Crear(new Concentrado(compra, venta, cantidad, nombre, tamanio, marca,
-								ingrediente, esbolsaPlasticaO, cantComida, esParaCachorroO));
-						vf.getCon().mostrarMensajeEmergente("PRODUCTO AGREGADO EXITOSAMENTE");
 					}
+					mf.getConcentradoDAO().Crear(new Concentrado(compra, venta, cantidad, nombre, tamanio, marca,
+							ingrediente, esbolsaPlasticaO, cantComida, esParaCachorroO));
+					vf.getCon().mostrarMensajeEmergente("PRODUCTO AGREGADO EXITOSAMENTE");
 				} else if (guacal) {
 					double compra = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
 					double venta = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
@@ -340,9 +339,68 @@ public class Controller implements ActionListener {
 			} else if (actualizar) {
 
 				if (concentrado) {
+					double compraA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					double ventaA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					int cantidadA = Integer.parseInt(vf.getMw().getInputPanel().getCantidadTxt().getText());
+					String nombreA = vf.getMw().getInputPanel().getNombreTxt().getText();
+					String tamanioA = vf.getMw().getInputPanel().getTamanioTxt().getText();
+					String marcaA = vf.getMw().getInputPanel().getMarcaTxt().getText();
+					String ingredienteA = vf.getMw().getInputPanel().getPropio1Txt().getText();
+					String esbolsaPlasticaA = vf.getMw().getInputPanel().getPropio2Txt().getText();
+					boolean esbolsaPlasticaOA;
+					if (esbolsaPlasticaA.equalsIgnoreCase("si")) {
+						esbolsaPlasticaOA = true;
+					} else {
+						esbolsaPlasticaOA = false;
+
+					}
+					float cantComidaA = Float.parseFloat(vf.getMw().getInputPanel().getPropio3Txt().getText());
+					String esParaCachorroA = vf.getMw().getInputPanel().getPropio2Txt().getText();
+					boolean esParaCachorroOA;
+					if (esParaCachorroA.equalsIgnoreCase("si")) {
+						esParaCachorroOA = true;
+					} else {
+						esParaCachorroOA = false;
+					}
+
+					if (mf.getConcentradoDAO().actualizar(indexA, new Concentrado(compraA, ventaA, cantidadA, nombreA,
+							tamanioA, marcaA, ingredienteA, esbolsaPlasticaOA, cantComidaA, esParaCachorroOA)) == 0) {
+						vf.getCon().mostrarMensajeEmergente("PRODUCTO ACTUALIZADO EXITOSAMENTE");
+					} else {
+						vf.getCon().mostrarMensajeEmergente("No fue posible actualizar el producto");
+					}
 
 				} else if (guacal) {
+					double compraA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					double ventaA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					int cantidadA = Integer.parseInt(vf.getMw().getInputPanel().getCantidadTxt().getText());
+					String nombreA = vf.getMw().getInputPanel().getNombreTxt().getText();
+					String tamanioA = vf.getMw().getInputPanel().getTamanioTxt().getText();
+					String marcaA = vf.getMw().getInputPanel().getMarcaTxt().getText();
+					String esGrandeA = vf.getMw().getInputPanel().getPropio1Txt().getText();
 
+					boolean esGrandeYA;
+					if (esGrandeA.equalsIgnoreCase("si")) {
+						esGrandeYA = true;
+					} else {
+						esGrandeYA = false;
+					}
+					String materialA = vf.getMw().getInputPanel().getPropio2Txt().getText();
+					String esParaPerroA = vf.getMw().getInputPanel().getPropio3Txt().getText();
+					boolean esParaPerroNA;
+					if (esParaPerroA.equalsIgnoreCase("si")) {
+						esParaPerroNA = true;
+					} else {
+						esParaPerroNA = false;
+					}
+					String color = vf.getMw().getInputPanel().getPropio4Txt().getText();
+
+					if (mf.getGuacalDAO().actualizar(indexA, new Guacal(compraA, ventaA, cantidadA, nombreA, tamanioA,
+							marcaA, esGrandeYA, materialA, esParaPerroNA, color)) == 0) {
+						vf.getCon().mostrarMensajeEmergente("PRODUCTO ACTUALIZADO EXITOSAMENTE");
+					} else {
+						vf.getCon().mostrarMensajeEmergente("No fue posible actualizar el producto");
+					}
 				} else if (correa) {
 					double compraA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
 					double ventaA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
@@ -383,6 +441,7 @@ public class Controller implements ActionListener {
 			vf.getMw().getInputPanel().getPropio4Txt().setText("");
 
 			agregar = false;
+			actualizar = false;
 			vf.getMw().showcrudPanel();
 			break;
 
