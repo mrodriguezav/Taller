@@ -1,10 +1,12 @@
 package co.edu.unbosque.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import co.edu.unbosque.model.Concentrado;
 import co.edu.unbosque.model.Correa;
+import co.edu.unbosque.model.Guacal;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.view.ViewFacade;
 
@@ -259,8 +261,59 @@ public class Controller implements ActionListener {
 		case "FINALIZAR":
 			if (agregar) {
 				if (concentrado) {
+					double compra = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					double venta = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					int cantidad = Integer.parseInt(vf.getMw().getInputPanel().getCantidadTxt().getText());
+					String nombre = vf.getMw().getInputPanel().getNombreTxt().getText();
+					String tamanio = vf.getMw().getInputPanel().getTamanioTxt().getText();
+					String marca = vf.getMw().getInputPanel().getMarcaTxt().getText();
+					String ingrediente = vf.getMw().getInputPanel().getPropio1Txt().getText();
+					String esbolsaPlastica = vf.getMw().getInputPanel().getPropio2Txt().getText();
+					boolean esbolsaPlasticaO;
+					if (esbolsaPlastica.equalsIgnoreCase("si")) {
+						esbolsaPlasticaO = true;
+					} else {
+						esbolsaPlasticaO = false;
 
+					}
+					float cantComida = Float.parseFloat(vf.getMw().getInputPanel().getPropio3Txt().getText());
+					String esParaCachorro = vf.getMw().getInputPanel().getPropio2Txt().getText();
+					boolean esParaCachorroO;
+					if (esParaCachorro.equalsIgnoreCase("si")) {
+						esParaCachorroO = true;
+					} else {
+						esParaCachorroO = false;
+						mf.getConcentradoDAO().Crear(new Concentrado(compra, venta, cantidad, nombre, tamanio, marca,
+								ingrediente, esbolsaPlasticaO, cantComida, esParaCachorroO));
+						vf.getCon().mostrarMensajeEmergente("PRODUCTO AGREGADO EXITOSAMENTE");
+					}
 				} else if (guacal) {
+					double compra = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					double venta = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					int cantidad = Integer.parseInt(vf.getMw().getInputPanel().getCantidadTxt().getText());
+					String nombre = vf.getMw().getInputPanel().getNombreTxt().getText();
+					String tamanio = vf.getMw().getInputPanel().getTamanioTxt().getText();
+					String marca = vf.getMw().getInputPanel().getMarcaTxt().getText();
+					String esGrande = vf.getMw().getInputPanel().getPropio1Txt().getText();
+
+					boolean esGrandeY;
+					if (esGrande.equalsIgnoreCase("si")) {
+						esGrandeY = true;
+					} else {
+						esGrandeY = false;
+					}
+					String material = vf.getMw().getInputPanel().getPropio2Txt().getText();
+					String esParaPerro = vf.getMw().getInputPanel().getPropio3Txt().getText();
+					boolean esParaPerroN;
+					if (esParaPerro.equalsIgnoreCase("si")) {
+						esParaPerroN = true;
+					} else {
+						esParaPerroN = false;
+					}
+					String color = vf.getMw().getInputPanel().getPropio4Txt().getText();
+					mf.getGuacalDAO().Crear(new Guacal(compra, venta, cantidad, nombre, tamanio, marca, esGrandeY,
+							material, esParaPerroN, color));
+					vf.getCon().mostrarMensajeEmergente("PRODUCTO AGREGADO EXITOSAMENTE");
 
 				} else if (correa) {
 					double compra = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
