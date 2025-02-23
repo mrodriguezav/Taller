@@ -414,3 +414,4 @@ public class InputPanel extends JPanel {
 	}
 
 }
+///F en el chat
