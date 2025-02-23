@@ -2,8 +2,8 @@ package co.edu.unbosque.controller;
 
 public class AplMain {
 
-	public AplMain() {
+	public static void main(String[] args) {
 		Controller c = new Controller();
-	}
 
+	}
 }
