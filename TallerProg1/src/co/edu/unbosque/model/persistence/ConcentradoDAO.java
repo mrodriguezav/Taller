@@ -67,4 +67,20 @@ public class ConcentradoDAO implements OperationDAO<Concentrado> {
 
 	}
 
+	public double calcularInversion() {
+		double inversion = 0.0;
+		for (Concentrado concentrado : listaConcentrados) {
+			inversion += concentrado.getPrecioCompra();
+		}
+		return inversion;
+	}
+
+	public double calcularRetorno() {
+		double retorno = 0.0;
+		for (Concentrado concentrado : listaConcentrados) {
+			retorno += concentrado.getPrecioVenta();
+		}
+		return retorno;
+	}
+
 }

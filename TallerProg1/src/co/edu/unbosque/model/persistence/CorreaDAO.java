@@ -67,4 +67,20 @@ public class CorreaDAO implements OperationDAO<Correa> {
 
 	}
 
+	public double calcularInversion() {
+		double inversion = 0.0;
+		for (Correa correa : listaCorreas) {
+			inversion += correa.getPrecioCompra();
+		}
+		return inversion;
+	}
+
+	public double calcularRetorno() {
+		double retorno = 0.0;
+		for (Correa correa : listaCorreas) {
+			retorno += correa.getPrecioVenta();
+		}
+		return retorno;
+	}
+
 }

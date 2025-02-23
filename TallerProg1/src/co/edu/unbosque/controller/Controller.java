@@ -80,11 +80,16 @@ public class Controller implements ActionListener {
 			vf.getMw().showMenuPanel();
 			break;
 		case "INGRESO":
+			double inversion = mf.getConcentradoDAO().calcularInversion() + mf.getCorreaDAO().calcularInversion()
+					+ mf.getGuacalDAO().calcularInversion();
+			vf.getCon().mostrarMensajeEmergente("Su inversión ha sido de " + inversion + " pesos colombianos");
 
 			break;
 
 		case "RETORNO":
-
+			double retorno = mf.getConcentradoDAO().calcularRetorno() + mf.getCorreaDAO().calcularRetorno()
+					+ mf.getGuacalDAO().calcularRetorno();
+			vf.getCon().mostrarMensajeEmergente("Su retorno de inversión ha sido de " + retorno + " pesos colombianos");
 			break;
 
 ///Acciones Menu Panel

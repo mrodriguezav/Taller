@@ -2,6 +2,7 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 
+import co.edu.unbosque.model.Correa;
 import co.edu.unbosque.model.Guacal;
 
 public class GuacalDAO implements OperationDAO<Guacal> {
@@ -65,6 +66,22 @@ public class GuacalDAO implements OperationDAO<Guacal> {
 			return true;
 		}
 
+	}
+
+	public double calcularInversion() {
+		double inversion = 0.0;
+		for (Guacal guacal : listaGuacales) {
+			inversion += guacal.getPrecioCompra();
+		}
+		return inversion;
+	}
+
+	public double calcularRetorno() {
+		double retorno = 0.0;
+		for (Guacal guacal : listaGuacales) {
+			retorno += guacal.getPrecioVenta();
+		}
+		return retorno;
 	}
 
 }
