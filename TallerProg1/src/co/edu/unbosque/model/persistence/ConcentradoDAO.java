@@ -42,14 +42,29 @@ public class ConcentradoDAO implements OperationDAO<Concentrado> {
 
 	@Override
 	public String mostrarTodo() {
-		String contenido = "";
-		int pos = 1;
-		for (Concentrado concentrado : listaConcentrados) {
-			contenido += "\n concentrado " + pos;
-			contenido += concentrado + "\n";
+		if (listaConcentrados.isEmpty()) {
+			return "No hay productos registrados";
+		} else {
+
+			String contenido = "";
+			int pos = 1;
+			for (Concentrado concentrado : listaConcentrados) {
+				contenido += "\n concentrado " + pos;
+				contenido += concentrado + "\n";
+				pos++;
+			}
+
+			return contenido;
+		}
+	}
+
+	public boolean checkIndex(int index) {
+		if (index < 0 || index >= listaConcentrados.size()) {
+			return false;
+		} else {
+			return true;
 		}
 
-		return contenido;
 	}
 
 }

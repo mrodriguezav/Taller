@@ -42,14 +42,29 @@ public class CorreaDAO implements OperationDAO<Correa> {
 
 	@Override
 	public String mostrarTodo() {
-		String contenido = "";
-		int pos = 1;
-		for (Correa correa : listaCorreas) {
-			contenido += "\n Correa " + pos;
-			contenido += correa + "\n";
+		if (listaCorreas.isEmpty()) {
+			return "No hay productos registrados";
+		} else {
+
+			String contenido = "";
+			int pos = 1;
+			for (Correa correa : listaCorreas) {
+				contenido += "\n Correa " + pos;
+				contenido += correa + "\n";
+				pos++;
+			}
+
+			return contenido;
+		}
+	}
+
+	public boolean checkIndex(int index) {
+		if (index < 0 || index >= listaCorreas.size()) {
+			return false;
+		} else {
+			return true;
 		}
 
-		return contenido;
 	}
 
 }

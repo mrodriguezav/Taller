@@ -13,9 +13,7 @@ public class ModelFacade {
 		concentradoDAO = new ConcentradoDAO();
 		correaDAO = new CorreaDAO();
 		guacalDAO = new GuacalDAO();
-
 	}
-	
 
 	public ConcentradoDAO getConcentradoDAO() {
 		return concentradoDAO;
@@ -40,5 +38,5 @@ public class ModelFacade {
 	public void setGuacalDAO(GuacalDAO guacalDAO) {
 		this.guacalDAO = guacalDAO;
 	}
-	
+
 }

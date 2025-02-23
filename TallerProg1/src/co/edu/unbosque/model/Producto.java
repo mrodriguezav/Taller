@@ -2,8 +2,8 @@ package co.edu.unbosque.model;
 
 public abstract class Producto {
 
-	private float precioCompra;
-	private float precioVenta;
+	private double precioCompra;
+	private double precioVenta;
 	private int cantidad;
 	private String nombre;
 	private String tamanio;
@@ -13,7 +13,8 @@ public abstract class Producto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca) {
+	public Producto(double precioCompra, double precioVenta, int cantidad, String nombre, String tamanio,
+			String marca) {
 		super();
 		this.precioCompra = precioCompra;
 		this.precioVenta = precioVenta;
@@ -23,7 +24,7 @@ public abstract class Producto {
 		this.marca = marca;
 	}
 
-	public float getPrecioCompra() {
+	public double getPrecioCompra() {
 		return precioCompra;
 
 	}
@@ -32,7 +33,7 @@ public abstract class Producto {
 		this.precioCompra = precioCompra;
 	}
 
-	public float getPrecioVenta() {
+	public double getPrecioVenta() {
 		return precioVenta;
 	}
 

@@ -18,7 +18,7 @@ public class Correa extends Producto {
 		this.esDeAhogo = esDeAhogo;
 	}
 
-	public Correa(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca,
+	public Correa(double precioCompra, double precioVenta, int cantidad, String nombre, String tamanio, String marca,
 			String color, float longitud, String material, boolean esDeAhogo) {
 		super(precioCompra, precioVenta, cantidad, nombre, tamanio, marca);
 		this.color = color;
@@ -27,7 +27,7 @@ public class Correa extends Producto {
 		this.esDeAhogo = esDeAhogo;
 	}
 
-	public Correa(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca) {
+	public Correa(double precioCompra, double precioVenta, int cantidad, String nombre, String tamanio, String marca) {
 		super(precioCompra, precioVenta, cantidad, nombre, tamanio, marca);
 		// TODO Auto-generated constructor stub
 	}
@@ -66,7 +66,7 @@ public class Correa extends Producto {
 
 	@Override
 	public String toString() {
-		return "\n Color= " + color + "\n Longitud= " + longitud + "\n material = " + material + "\n esDeAhogo= "
+		return super.toString() + "\n Color= " + color + "\n Longitud= " + longitud + "\n material = " + material + "\n esDeAhogo= "
 				+ esDeAhogo;
 	}
 ///a

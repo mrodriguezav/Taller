@@ -181,10 +181,10 @@ public class InputPanel extends JPanel {
 		propio4Lbl.setForeground(Color.BLACK);
 		propio4Lbl.setBounds(100, 500, 150, 50);
 
-		titulo = new JLabel("Titulo", SwingConstants.CENTER);
+		titulo = new JLabel("", SwingConstants.CENTER);
 		titulo.setFont(new Font("SansSerif", Font.BOLD, 20));
 		titulo.setForeground(Color.black);
-		titulo.setBounds(550, 5, 150, 50);
+		titulo.setBounds(450, 5, 500, 50);
 
 ///Lbl
 		add(compraLbl);

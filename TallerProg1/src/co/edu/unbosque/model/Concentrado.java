@@ -18,8 +18,9 @@ public class Concentrado extends Producto {
 		this.esParaCachorro = esParaCachorro;
 	}
 
-	public Concentrado(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca,
-			String ingredientePrincipal, boolean esBolsaPlastica, float cantComida, boolean esParaCachorro) {
+	public Concentrado(double precioCompra, double precioVenta, int cantidad, String nombre, String tamanio,
+			String marca, String ingredientePrincipal, boolean esBolsaPlastica, float cantComida,
+			boolean esParaCachorro) {
 		super(precioCompra, precioVenta, cantidad, nombre, tamanio, marca);
 		this.ingredientePrincipal = ingredientePrincipal;
 		this.esBolsaPlastica = esBolsaPlastica;
@@ -27,7 +28,8 @@ public class Concentrado extends Producto {
 		this.esParaCachorro = esParaCachorro;
 	}
 
-	public Concentrado(float precioCompra, float precioVenta, int cantidad, String nombre, String tamanio, String marca) {
+	public Concentrado(double precioCompra, double precioVenta, int cantidad, String nombre, String tamanio,
+			String marca) {
 		super(precioCompra, precioVenta, cantidad, nombre, tamanio, marca);
 		// TODO Auto-generated constructor stub
 	}
@@ -66,7 +68,7 @@ public class Concentrado extends Producto {
 
 	@Override
 	public String toString() {
-		return "\n IngredientePrincipal= " + ingredientePrincipal + "\n EsBolsaPlastica= " + esBolsaPlastica
+		return super.toString() +"\n IngredientePrincipal= " + ingredientePrincipal + "\n EsBolsaPlastica= " + esBolsaPlastica
 				+ "\n CantComida= " + cantComida + "\n esParaCachorro= " + esParaCachorro;
 	}
 

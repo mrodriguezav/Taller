@@ -3,15 +3,23 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import co.edu.unbosque.model.Concentrado;
+import co.edu.unbosque.model.Correa;
+import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controller implements ActionListener {
 	private ViewFacade vf;
+	private ModelFacade mf;
+
+	private boolean concentrado, correa, guacal, agregar, actualizar;
+	private int indexA;
 
 	public Controller() {
 		vf = new ViewFacade();
-//		vf.getMw().showHomePanel();
-		vf.getMw().showinputPanel();
+		mf = new ModelFacade();
+
+		vf.getMw().showHomePanel();
 		asignarLectores();
 	}
 
@@ -69,7 +77,6 @@ public class Controller implements ActionListener {
 		switch (e.getActionCommand()) {
 ///Acciones Home Panel
 		case "INICIOP":
-
 			vf.getMw().showMenuPanel();
 			break;
 		case "INGRESO":
@@ -77,41 +84,249 @@ public class Controller implements ActionListener {
 			break;
 
 		case "RETORNO":
+
 			break;
 
 ///Acciones Menu Panel
 		case "CONCENTRADO":
+			concentrado = true;
+			vf.getMw().getCrudPanel().getTitulo().setText("ADMINISTRANDO CONCENTRADOS");
 			vf.getMw().showcrudPanel();
+
 			break;
+
 		case "GUACAL":
+			guacal = true;
+			vf.getMw().getCrudPanel().getTitulo().setText("ADMINISTRANDO GUACALES");
 			vf.getMw().showcrudPanel();
 			break;
+
 		case "CORREA":
+			correa = true;
+			vf.getMw().getCrudPanel().getTitulo().setText("ADMINISTRANDO CORREAS");
 			vf.getMw().showcrudPanel();
 			break;
+
 		case "VOLVER":
+
 			vf.getMw().showHomePanel();
 			break;
+
 ///Acciones CRUD Panel
 		case "VER":
-			vf.getMw().showinputPanel();
+			if (concentrado) {
+				vf.getCon().mostrarMensajeEmergenteConScroll(mf.getConcentradoDAO().mostrarTodo());
+			} else if (guacal) {
+				vf.getCon().mostrarMensajeEmergenteConScroll(mf.getGuacalDAO().mostrarTodo());
+			} else if (correa) {
+				vf.getCon().mostrarMensajeEmergenteConScroll(mf.getCorreaDAO().mostrarTodo());
+			}
 			break;
+
 		case "AGREGAR":
+			agregar = true;
+			if (concentrado == true) {
+				vf.getMw().getInputPanel().getTitulo().setText("AGREGANDO CONCENTRADO: ");
+				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto: ");
+				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta: ");
+				vf.getMw().getInputPanel().getCantidadLbl().setText("Cantidad: ");
+				vf.getMw().getInputPanel().getNombreLbl().setText("Nombre: ");
+				vf.getMw().getInputPanel().getTamanioLbl().setText("Tamaño: ");
+				vf.getMw().getInputPanel().getMarcaLbl().setText("Marca: ");
+				vf.getMw().getInputPanel().getPropio1Lbl().setText("Ingrediente principal: ");
+				vf.getMw().getInputPanel().getPropio2Lbl().setText("Es de bolsa plástica?: ");
+				vf.getMw().getInputPanel().getPropio3Lbl().setText("Cantidad del producto (lb): ");
+				vf.getMw().getInputPanel().getPropio4Lbl().setText("Es para cachorro?: ");
+			} else if (guacal == true) {
+				vf.getMw().getInputPanel().getTitulo().setText("AGREGANDO GUACAL");
+				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto: ");
+				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta: ");
+				vf.getMw().getInputPanel().getCantidadLbl().setText("Cantidad: ");
+				vf.getMw().getInputPanel().getNombreLbl().setText("Nombre: ");
+				vf.getMw().getInputPanel().getTamanioLbl().setText("Tamaño: ");
+				vf.getMw().getInputPanel().getMarcaLbl().setText("Marca: ");
+				vf.getMw().getInputPanel().getPropio1Lbl().setText("Es grande? (Si/No): ");
+				vf.getMw().getInputPanel().getPropio2Lbl().setText("Material: ");
+				vf.getMw().getInputPanel().getPropio3Lbl().setText("Es para perros?: ");
+				vf.getMw().getInputPanel().getPropio4Lbl().setText("Color: ");
+			} else if (correa == true) {
+				vf.getMw().getInputPanel().getTitulo().setText("AGREGANDO CORREA");
+				vf.getMw().getInputPanel().getCompraLbl().setText("Gasto del producto: ");
+				vf.getMw().getInputPanel().getVentaLbl().setText("Precio de venta: ");
+				vf.getMw().getInputPanel().getCantidadLbl().setText("Cantidad: ");
+				vf.getMw().getInputPanel().getNombreLbl().setText("Nombre: ");
+				vf.getMw().getInputPanel().getTamanioLbl().setText("Tamaño: ");
+				vf.getMw().getInputPanel().getMarcaLbl().setText("Marca: ");
+				vf.getMw().getInputPanel().getPropio1Lbl().setText("Color: ");
+				vf.getMw().getInputPanel().getPropio2Lbl().setText("Longitud: ");
+				vf.getMw().getInputPanel().getPropio3Lbl().setText("Material: ");
+				vf.getMw().getInputPanel().getPropio4Lbl().setText("Es de ahogo?: ");
+			}
+
 			vf.getMw().showinputPanel();
 			break;
+
 		case "ACTUALIZAR":
-			vf.getMw().showinputPanel();
+			actualizar = true;
+			vf.getCon().mostrarMensajeEmergente("Ingrese el número del producto a actualizar");
+			indexA = vf.getCon().ingresarNumero() - 1;
+
+			if (concentrado) {
+				if (mf.getConcentradoDAO().checkIndex(indexA)) {
+					vf.getMw().getInputPanel().getTitulo().setText("ACTUALIZANDO CONCENTRADO");
+					vf.getMw().showinputPanel();
+				} else {
+					vf.getCon().mostrarAlerta("No existe el número del producto seleccionado");
+				}
+
+			} else if (guacal) {
+				if (mf.getGuacalDAO().checkIndex(indexA)) {
+					vf.getMw().getInputPanel().getTitulo().setText("ACTUALIZANDO GUACAL");
+					vf.getMw().showinputPanel();
+				} else {
+					vf.getCon().mostrarAlerta("No existe el número del producto seleccionado");
+				}
+
+			} else if (correa) {
+				if (mf.getCorreaDAO().checkIndex(indexA)) {
+					vf.getMw().getInputPanel().getTitulo().setText("ACTUALIZANDO CORREA");
+					vf.getMw().showinputPanel();
+				} else {
+					vf.getCon().mostrarAlerta("No existe el número del producto seleccionado");
+				}
+
+			}
+
 			break;
+
 		case "ELIMINAR":
+			if (concentrado) {
+				vf.getCon().mostrarMensajeEmergente("Ingrese el número del producto a eliminar");
+				int eliminar = vf.getCon().ingresarNumero() - 1;
+				if (mf.getConcentradoDAO().eliminar(eliminar) == 0) {
+					vf.getCon().mostrarMensajeEmergente("Producto eliminado exitosamente");
+				} else {
+					vf.getCon().mostrarMensajeEmergente("No fue posible eliminar el producto");
+				}
+			} else if (guacal) {
+				vf.getCon().mostrarMensajeEmergente("Ingrese el número del producto a eliminar");
+				int eliminar = vf.getCon().ingresarNumero() - 1;
+				if (mf.getGuacalDAO().eliminar(eliminar) == 0) {
+					vf.getCon().mostrarMensajeEmergente("Producto eliminado exitosamente");
+				} else {
+					vf.getCon().mostrarMensajeEmergente("No fue posible eliminar el producto");
+				}
+
+			} else if (correa) {
+				vf.getCon().mostrarMensajeEmergente("Ingrese el número del producto a eliminar");
+				int eliminar = vf.getCon().ingresarNumero() - 1;
+				if (mf.getCorreaDAO().eliminar(eliminar) == 0) {
+					vf.getCon().mostrarMensajeEmergente("Producto eliminado exitosamente");
+				} else {
+					vf.getCon().mostrarMensajeEmergente("No fue posible eliminar el producto");
+				}
+			}
 			break;
 
 		case "VOLVER2":
-			vf.getMw().showinputPanel();
+			concentrado = false;
+			guacal = false;
+			correa = false;
+			vf.getMw().showMenuPanel();
+			break;
 
 /// Acciones INPUT Panel
 		case "VOLVER3":
-			vf.getMw().showMenuPanel();
+			vf.getMw().showcrudPanel();
+			vf.getMw().getInputPanel().getCompraTxt().setText("");
+			vf.getMw().getInputPanel().getVentaTxt().setText("");
+			vf.getMw().getInputPanel().getCantidadTxt().setText("");
+			vf.getMw().getInputPanel().getNombreTxt().setText("");
+			vf.getMw().getInputPanel().getTamanioTxt().setText("");
+			vf.getMw().getInputPanel().getMarcaTxt().setText("");
+			vf.getMw().getInputPanel().getPropio1Txt().setText("");
+			vf.getMw().getInputPanel().getPropio2Txt().setText("");
+			vf.getMw().getInputPanel().getPropio3Txt().setText("");
+			vf.getMw().getInputPanel().getPropio4Txt().setText("");
+
+			break;
+
 		case "FINALIZAR":
+			if (agregar) {
+				if (concentrado) {
+
+				} else if (guacal) {
+
+				} else if (correa) {
+					double compra = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					double venta = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					int cantidad = Integer.parseInt(vf.getMw().getInputPanel().getCantidadTxt().getText());
+					String nombre = vf.getMw().getInputPanel().getNombreTxt().getText();
+					String tamanio = vf.getMw().getInputPanel().getTamanioTxt().getText();
+					String marca = vf.getMw().getInputPanel().getMarcaTxt().getText();
+					String color = vf.getMw().getInputPanel().getPropio1Txt().getText();
+					float longitud = Float.parseFloat(vf.getMw().getInputPanel().getPropio2Txt().getText());
+					String material = vf.getMw().getInputPanel().getPropio3Txt().getText();
+					String esDeAhogo = vf.getMw().getInputPanel().getPropio4Txt().getText();
+					boolean esDeAhogoT;
+					if (esDeAhogo.equalsIgnoreCase("si")) {
+						esDeAhogoT = true;
+					} else {
+						esDeAhogoT = false;
+					}
+
+					mf.getCorreaDAO().Crear(new Correa(compra, venta, cantidad, nombre, tamanio, marca, color, longitud,
+							material, esDeAhogoT));
+					vf.getCon().mostrarMensajeEmergente("PRODUCTO AGREGADO EXITOSAMENTE");
+				}
+			} else if (actualizar) {
+
+				if (concentrado) {
+
+				} else if (guacal) {
+
+				} else if (correa) {
+					double compraA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					double ventaA = Double.parseDouble(vf.getMw().getInputPanel().getCompraTxt().getText());
+					int cantidadA = Integer.parseInt(vf.getMw().getInputPanel().getCantidadTxt().getText());
+					String nombreA = vf.getMw().getInputPanel().getNombreTxt().getText();
+					String tamanioA = vf.getMw().getInputPanel().getTamanioTxt().getText();
+					String marcaA = vf.getMw().getInputPanel().getMarcaTxt().getText();
+					String colorA = vf.getMw().getInputPanel().getPropio1Txt().getText();
+					float longitudA = Float.parseFloat(vf.getMw().getInputPanel().getPropio2Txt().getText());
+					String materialA = vf.getMw().getInputPanel().getPropio3Txt().getText();
+					String esDeAhogoA = vf.getMw().getInputPanel().getPropio4Txt().getText();
+					boolean esDeAhogoTA;
+					if (esDeAhogoA.equalsIgnoreCase("si")) {
+						esDeAhogoTA = true;
+					} else {
+						esDeAhogoTA = false;
+					}
+
+					if (mf.getCorreaDAO().actualizar(indexA, new Correa(compraA, ventaA, cantidadA, nombreA, tamanioA,
+							marcaA, colorA, longitudA, materialA, esDeAhogoTA)) == 0) {
+						vf.getCon().mostrarMensajeEmergente("PRODUCTO ACTUALIZADO EXITOSAMENTE");
+					} else {
+						vf.getCon().mostrarMensajeEmergente("No fue posible actualizar el producto");
+					}
+				}
+
+			}
+
+			vf.getMw().getInputPanel().getCompraTxt().setText("");
+			vf.getMw().getInputPanel().getVentaTxt().setText("");
+			vf.getMw().getInputPanel().getCantidadTxt().setText("");
+			vf.getMw().getInputPanel().getNombreTxt().setText("");
+			vf.getMw().getInputPanel().getTamanioTxt().setText("");
+			vf.getMw().getInputPanel().getMarcaTxt().setText("");
+			vf.getMw().getInputPanel().getPropio1Txt().setText("");
+			vf.getMw().getInputPanel().getPropio2Txt().setText("");
+			vf.getMw().getInputPanel().getPropio3Txt().setText("");
+			vf.getMw().getInputPanel().getPropio4Txt().setText("");
+
+			agregar = false;
+			vf.getMw().showcrudPanel();
+			break;
 
 		default:
 			break;

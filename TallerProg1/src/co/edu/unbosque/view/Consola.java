@@ -49,4 +49,16 @@ public class Consola {
 		JOptionPane.showMessageDialog(null, texto, "Lista productos registrados", JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	public int ingresarNumero() {
+		String input = JOptionPane.showInputDialog(null, "Ingrese un número:", "Entrada de número",
+				JOptionPane.QUESTION_MESSAGE);
+
+		try {
+			return Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			mostrarError("Entrada inválida. Por favor, ingrese un número válido.");
+			return ingresarNumero(); 
+		}
+	}
+
 }

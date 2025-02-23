@@ -1,11 +1,14 @@
 package co.edu.unbosque.view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class CrudPanel extends JPanel {
 
@@ -13,7 +16,7 @@ public class CrudPanel extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JLabel img3;
+	private JLabel img3, titulo;
 	private JButton verProductoBtn, agregarProductoBtn, actualizarProductoBtn, eliminarProductoBtn, volverBtn;
 
 	public CrudPanel() {
@@ -46,14 +49,20 @@ public class CrudPanel extends JPanel {
 		volverBtn.setActionCommand("VOLVER2");
 		volverBtn.setOpaque(false);
 
+		titulo = new JLabel("", SwingConstants.LEFT);
+		titulo.setFont(new Font("SansSerif", Font.BOLD, 25));
+		titulo.setForeground(Color.black);
+		titulo.setBounds(450, 5, 600, 50);
+
 		img3 = new JLabel();
 		ImageIcon imagenPortada2 = new ImageIcon("src/media/Pet3.png");
 		Image portadaRedimensionada2 = imagenPortada2.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
 		img3.setIcon(new ImageIcon(portadaRedimensionada2));
 		img3.setBounds(0, 0, 1280, 720);
 		img3.setVisible(true);
-		add(img3);
 
+		add(titulo);
+		add(img3);
 		add(verProductoBtn);
 		add(agregarProductoBtn);
 		add(actualizarProductoBtn);
@@ -112,6 +121,14 @@ public class CrudPanel extends JPanel {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public JLabel getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(JLabel titulo) {
+		this.titulo = titulo;
 	}
 
 }

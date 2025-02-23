@@ -3,7 +3,6 @@ package co.edu.unbosque.model.persistence;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.Guacal;
-import co.edu.unbosque.model.Guacal;
 
 public class GuacalDAO implements OperationDAO<Guacal> {
 	private ArrayList<Guacal> listaGuacales;
@@ -43,14 +42,29 @@ public class GuacalDAO implements OperationDAO<Guacal> {
 
 	@Override
 	public String mostrarTodo() {
-		String contenido = "";
-		int pos = 1;
-		for (Guacal Guacal : listaGuacales) {
-			contenido += "\n Guacal " + pos;
-			contenido += Guacal + "\n";
+		if (listaGuacales.isEmpty()) {
+			return "No hay productos registrados";
+		} else {
+
+			String contenido = "";
+			int pos = 1;
+			for (Guacal Guacal : listaGuacales) {
+				contenido += "\n Guacal " + pos;
+				contenido += Guacal + "\n";
+				pos++;
+			}
+
+			return contenido;
+		}
+	}
+
+	public boolean checkIndex(int index) {
+		if (index < 0 || index >= listaGuacales.size()) {
+			return false;
+		} else {
+			return true;
 		}
 
-		return contenido;
 	}
 
 }
