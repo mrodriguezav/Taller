@@ -22,27 +22,27 @@ public class CrudPanel extends JPanel {
 		setVisible(true);
 
 		verProductoBtn = new JButton("ver");
-		verProductoBtn.setBounds(505, 335, 280, 50);
+		verProductoBtn.setBounds(695, 270, 200, 70);
 		verProductoBtn.setActionCommand("VER");
 		verProductoBtn.setOpaque(false);
 
 		agregarProductoBtn = new JButton("agregar");
-		agregarProductoBtn.setBounds(505, 438, 280, 70);
+		agregarProductoBtn.setBounds(1020, 270, 200, 70);
 		agregarProductoBtn.setActionCommand("AGREGAR");
 		agregarProductoBtn.setOpaque(false);
 
 		actualizarProductoBtn = new JButton("actualizar");
-		actualizarProductoBtn.setBounds(505, 550, 280, 50);
+		actualizarProductoBtn.setBounds(695, 450, 200, 70);
 		actualizarProductoBtn.setActionCommand("ACTUALIZAR");
 		actualizarProductoBtn.setOpaque(false);
 
 		eliminarProductoBtn = new JButton("eliminar");
-		eliminarProductoBtn.setBounds(505, 550, 280, 50);
+		eliminarProductoBtn.setBounds(1030, 450, 200, 70);
 		eliminarProductoBtn.setActionCommand("ELIMINAR");
 		eliminarProductoBtn.setOpaque(false);
 
 		volverBtn = new JButton("volver");
-		volverBtn.setBounds(505, 550, 280, 50);
+		volverBtn.setBounds(75, 565, 160, 65);
 		volverBtn.setActionCommand("VOLVER2");
 		volverBtn.setOpaque(false);
 

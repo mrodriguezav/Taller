@@ -31,20 +31,20 @@ public class InputPanel extends JPanel {
 
 		img4 = new JLabel();
 		ImageIcon imagenPortada2 = new ImageIcon("src/media/Pet4.png");
-		Image portadaRedimensionada2 = imagenPortada2.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
-		img4.setIcon(new ImageIcon(portadaRedimensionada2));
+		Image portadaBlackimensionada2 = imagenPortada2.getImage().getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		img4.setIcon(new ImageIcon(portadaBlackimensionada2));
 		img4.setBounds(0, 0, 1280, 720);
 		img4.setVisible(true);
 
 		/// botones
 
 		volverBtn = new JButton("volver");
-		volverBtn.setBounds(505, 335, 280, 50);
+		volverBtn.setBounds(75, 575, 140, 50);
 		volverBtn.setActionCommand("VOLVER3");
 		volverBtn.setOpaque(false);
 
 		finalizarBtn = new JButton("finalizar");
-		finalizarBtn.setBounds(505, 438, 280, 70);
+		finalizarBtn.setBounds(1045, 575, 150, 50);
 		finalizarBtn.setActionCommand("FINALIZAR");
 		finalizarBtn.setOpaque(false);
 
@@ -53,138 +53,167 @@ public class InputPanel extends JPanel {
 		compraTxt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		compraTxt.setForeground(Color.BLACK);
 		compraTxt.setBackground(new Color(240, 240, 240));
-		compraTxt.setBounds(110, 350, 300, 50);
-		compraTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		compraTxt.setBounds(500, 50, 150, 50);
+		compraTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		ventaTxt = new JTextField("Venta", SwingConstants.CENTER);
 		ventaTxt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		ventaTxt.setForeground(Color.BLACK);
 		ventaTxt.setBackground(new Color(240, 240, 240));
-		ventaTxt.setBounds(110, 350, 300, 50);
-		ventaTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		ventaTxt.setBounds(500, 100, 150, 50);
+		ventaTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		cantidadTxt = new JTextField("Cantidad", SwingConstants.CENTER);
 		cantidadTxt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		cantidadTxt.setForeground(Color.BLACK);
 		cantidadTxt.setBackground(new Color(240, 240, 240));
-		cantidadTxt.setBounds(110, 350, 300, 50);
-		cantidadTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		cantidadTxt.setBounds(500, 150, 150, 50);
+		cantidadTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		nombreTxt = new JTextField("Nombre", SwingConstants.CENTER);
 		nombreTxt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		nombreTxt.setForeground(Color.BLACK);
 		nombreTxt.setBackground(new Color(240, 240, 240));
-		nombreTxt.setBounds(110, 350, 300, 50);
-		nombreTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		nombreTxt.setBounds(500, 200, 150, 50);
+		nombreTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		tamanioTxt = new JTextField("Tamañio", SwingConstants.CENTER);
 		tamanioTxt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		tamanioTxt.setForeground(Color.BLACK);
 		tamanioTxt.setBackground(new Color(240, 240, 240));
-		tamanioTxt.setBounds(110, 350, 300, 50);
-		tamanioTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		tamanioTxt.setBounds(500, 250, 150, 50);
+		tamanioTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		marcaTxt = new JTextField("Marca", SwingConstants.CENTER);
 		marcaTxt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		marcaTxt.setForeground(Color.BLACK);
 		marcaTxt.setBackground(new Color(240, 240, 240));
-		marcaTxt.setBounds(110, 350, 300, 50);
-		marcaTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		marcaTxt.setBounds(500, 300, 150, 50);
+		marcaTxt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		propio1Txt = new JTextField("Propio1", SwingConstants.CENTER);
 		propio1Txt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		propio1Txt.setForeground(Color.BLACK);
 		propio1Txt.setBackground(new Color(240, 240, 240));
-		propio1Txt.setBounds(110, 350, 300, 50);
-		propio1Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		propio1Txt.setBounds(500, 350, 150, 50);
+		propio1Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		propio2Txt = new JTextField("Propio2", SwingConstants.CENTER);
 		propio2Txt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		propio2Txt.setForeground(Color.BLACK);
 		propio2Txt.setBackground(new Color(240, 240, 240));
-		propio2Txt.setBounds(110, 350, 300, 50);
-		propio2Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		propio2Txt.setBounds(500, 400, 150, 50);
+		propio2Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		propio3Txt = new JTextField("Propio3", SwingConstants.CENTER);
 		propio3Txt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		propio3Txt.setForeground(Color.BLACK);
 		propio3Txt.setBackground(new Color(240, 240, 240));
-		propio3Txt.setBounds(110, 350, 300, 50);
-		propio3Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		propio3Txt.setBounds(500, 450, 150, 50);
+		propio3Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		propio4Txt = new JTextField("Propio4", SwingConstants.CENTER);
 		propio4Txt.setFont(new Font("SansSerif", Font.BOLD, 30));
 		propio4Txt.setForeground(Color.BLACK);
 		propio4Txt.setBackground(new Color(240, 240, 240));
-		propio4Txt.setBounds(110, 350, 300, 50);
-		propio4Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.GRAY, 2),
+		propio4Txt.setBounds(500, 500, 150, 50);
+		propio4Txt.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),
 				BorderFactory.createEmptyBorder(5, 15, 5, 15)));
 
 		/// Label
 
 		compraLbl = new JLabel("Compra", SwingConstants.LEFT);
 		compraLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		compraLbl.setForeground(Color.red);
-		compraLbl.setBounds(590, 290, 500, 50);
+		compraLbl.setForeground(Color.BLACK);
+		compraLbl.setBounds(100, 50, 150, 50);
 
 		ventaLbl = new JLabel("Venta", SwingConstants.LEFT);
 		ventaLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		ventaLbl.setForeground(Color.red);
-		ventaLbl.setBounds(590, 290, 500, 50);
+		ventaLbl.setForeground(Color.BLACK);
+		ventaLbl.setBounds(100, 100, 150, 50);
 
 		cantidadLbl = new JLabel("Cantidad", SwingConstants.LEFT);
 		cantidadLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		cantidadLbl.setForeground(Color.red);
-		cantidadLbl.setBounds(590, 290, 500, 50);
+		cantidadLbl.setForeground(Color.BLACK);
+		cantidadLbl.setBounds(100, 150, 150, 50);
 
 		nombreLbl = new JLabel("Nombre", SwingConstants.LEFT);
 		nombreLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		nombreLbl.setForeground(Color.red);
-		nombreLbl.setBounds(590, 290, 500, 50);
+		nombreLbl.setForeground(Color.BLACK);
+		nombreLbl.setBounds(100, 200, 150, 50);
 
 		tamanioLbl = new JLabel("Tamañio", SwingConstants.LEFT);
 		tamanioLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		tamanioLbl.setForeground(Color.red);
-		tamanioLbl.setBounds(590, 290, 500, 50);
+		tamanioLbl.setForeground(Color.BLACK);
+		tamanioLbl.setBounds(100, 250, 150, 50);
 
 		marcaLbl = new JLabel("Marca", SwingConstants.LEFT);
 		marcaLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		marcaLbl.setForeground(Color.red);
-		marcaLbl.setBounds(590, 290, 500, 50);
+		marcaLbl.setForeground(Color.BLACK);
+		marcaLbl.setBounds(100, 300, 150, 50);
 
 		propio1Lbl = new JLabel("Propio1", SwingConstants.LEFT);
 		propio1Lbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		propio1Lbl.setForeground(Color.red);
-		propio1Lbl.setBounds(590, 290, 500, 50);
+		propio1Lbl.setForeground(Color.BLACK);
+		propio1Lbl.setBounds(100, 350, 150, 50);
 
 		propio2Lbl = new JLabel("Propio2", SwingConstants.LEFT);
 		propio2Lbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		propio2Lbl.setForeground(Color.red);
-		propio2Lbl.setBounds(590, 290, 500, 50);
+		propio2Lbl.setForeground(Color.BLACK);
+		propio2Lbl.setBounds(100, 400, 150, 50);
 
 		propio3Lbl = new JLabel("Propio3", SwingConstants.LEFT);
 		propio3Lbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		propio3Lbl.setForeground(Color.red);
-		propio3Lbl.setBounds(590, 290, 500, 50);
+		propio3Lbl.setForeground(Color.BLACK);
+		propio3Lbl.setBounds(100, 450, 150, 50);
 
 		propio4Lbl = new JLabel("Propio4", SwingConstants.LEFT);
 		propio4Lbl.setFont(new Font("SansSerif", Font.BOLD, 20));
-		propio4Lbl.setForeground(Color.red);
-		propio4Lbl.setBounds(590, 290, 500, 50);
+		propio4Lbl.setForeground(Color.BLACK);
+		propio4Lbl.setBounds(100, 500, 150, 50);
 
-		titulo = new JLabel("titulo", SwingConstants.LEFT);
+		titulo = new JLabel("Titulo", SwingConstants.CENTER);
 		titulo.setFont(new Font("SansSerif", Font.BOLD, 20));
-		titulo.setForeground(Color.red);
-		titulo.setBounds(590, 290, 500, 50);
+		titulo.setForeground(Color.black);
+		titulo.setBounds(550, 5, 150, 50);
+
+///Lbl
+		add(compraLbl);
+		add(ventaLbl);
+		add(cantidadLbl);
+		add(nombreLbl);
+		add(tamanioLbl);
+		add(marcaLbl);
+		add(propio1Lbl);
+		add(propio2Lbl);
+		add(propio3Lbl);
+		add(propio4Lbl);
+		add(titulo);
+///Txt
+		add(compraTxt);
+		add(ventaTxt);
+		add(cantidadTxt);
+		add(nombreTxt);
+		add(tamanioTxt);
+		add(marcaTxt);
+		add(propio1Txt);
+		add(propio2Txt);
+		add(propio3Txt);
+		add(propio4Txt);
+
+		add(img4);
+///Btn
+		add(volverBtn);
+		add(finalizarBtn);
 
 	}
 
@@ -383,5 +412,5 @@ public class InputPanel extends JPanel {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

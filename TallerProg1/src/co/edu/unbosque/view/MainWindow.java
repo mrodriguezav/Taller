@@ -41,12 +41,12 @@ public class MainWindow extends JFrame {
 		setContentPane(menuPanel);
 	}
 
-	public void crudPanel() {
+	public void showcrudPanel() {
 		setContentPane(crudPanel);
 
 	}
 
-	public void inputPanel() {
+	public void showinputPanel() {
 		setContentPane(inputPanel);
 	}
 

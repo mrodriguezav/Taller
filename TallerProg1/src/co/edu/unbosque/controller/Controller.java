@@ -10,7 +10,8 @@ public class Controller implements ActionListener {
 
 	public Controller() {
 		vf = new ViewFacade();
-		vf.getMw().showHomePanel();
+//		vf.getMw().showHomePanel();
+		vf.getMw().showinputPanel();
 		asignarLectores();
 	}
 
@@ -70,9 +71,9 @@ public class Controller implements ActionListener {
 		case "INICIOP":
 
 			vf.getMw().showMenuPanel();
-
 			break;
 		case "INGRESO":
+
 			break;
 
 		case "RETORNO":
@@ -80,30 +81,36 @@ public class Controller implements ActionListener {
 
 ///Acciones Menu Panel
 		case "CONCENTRADO":
+			vf.getMw().showcrudPanel();
 			break;
 		case "GUACAL":
+			vf.getMw().showcrudPanel();
 			break;
 		case "CORREA":
+			vf.getMw().showcrudPanel();
 			break;
 		case "VOLVER":
 			vf.getMw().showHomePanel();
 			break;
 ///Acciones CRUD Panel
 		case "VER":
+			vf.getMw().showinputPanel();
 			break;
 		case "AGREGAR":
+			vf.getMw().showinputPanel();
 			break;
 		case "ACTUALIZAR":
+			vf.getMw().showinputPanel();
 			break;
 		case "ELIMINAR":
 			break;
 
 		case "VOLVER2":
-			vf.getMw().showHomePanel();
+			vf.getMw().showinputPanel();
 
 /// Acciones INPUT Panel
 		case "VOLVER3":
-			vf.getMw().showHomePanel();
+			vf.getMw().showMenuPanel();
 		case "FINALIZAR":
 
 		default:
